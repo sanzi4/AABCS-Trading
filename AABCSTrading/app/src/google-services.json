@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "506993392427",
+    "project_id": "aabcs-trading",
+    "storage_bucket": "aabcs-trading.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506993392427:android:55869e7f2e62daa409a36e",
+        "android_client_info": {
+          "package_name": "com.example.aabcs_trading"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506993392427-lv1b4f29b2dfd971aabcs3l1ijuto2k5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9fKTaLe9VVms0zvTXuZqNXuFJjg_OvRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506993392427-lv1b4f29b2dfd971aabcs3l1ijuto2k5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
