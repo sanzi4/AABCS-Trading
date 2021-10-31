@@ -74,7 +74,7 @@ public class SignUp extends AppCompatActivity {
         if(TextUtils.isEmpty((name)) || TextUtils.isEmpty((emails)) || TextUtils.isEmpty((passwords)) ||
                 TextUtils.isEmpty((university)) || TextUtils.isEmpty((money))){
 
-            fullName.setError("Feilds can not be left empty");
+            fullName.setError("Fields can not be left empty");
             fullName.requestFocus();
         }
         else{
