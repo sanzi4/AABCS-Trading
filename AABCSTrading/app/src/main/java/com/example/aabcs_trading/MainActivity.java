@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+// Sanzida Sultana
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signUp = (Button)findViewById(R.id.signUp);
         signUp.setOnClickListener(this);
 
-        // initalize the sign up button using the button id, logIn
+        // initlaize the sign up button using the button id, logIn
         logIn = (Button)findViewById(R.id.logIn);
         logIn.setOnClickListener(this);
     }
