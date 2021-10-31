@@ -60,6 +60,9 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
+    //TODO Check the invesment part the a check list with 3 opitions
+
+
     // Create a new user within Firebase
     private void createNewUser(){
 
