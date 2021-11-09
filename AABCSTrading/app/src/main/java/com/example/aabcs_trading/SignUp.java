@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.CheckBox;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,6 +18,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class SignUp extends AppCompatActivity {
@@ -23,14 +26,13 @@ public class SignUp extends AppCompatActivity {
     // Integrate Firebase to our Andorid App to use the email and password sign in feature
     private FirebaseAuth mAuth;
 
-
-
     // Variables to hold First Name, Last Name, University, Email and etc
     private EditText fullName;
     private EditText email;
     private EditText password;
     private EditText universityName;
-    private EditText investmentMoney;
+    private CheckBox firstCheck, secondCheck, thirdCheck;
+    private ArrayList<Integer> checkbox_Results;
     private Button signUp;
     Hashtable<String, String> userDict = new Hashtable<>();
 
@@ -44,8 +46,11 @@ public class SignUp extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         universityName = findViewById(R.id.college);
-        investmentMoney = findViewById(R.id.investMoney);
         signUp = (Button)findViewById(R.id.registerButton);
+        firstCheck = findViewById(R.id.choice1);
+        secondCheck = findViewById(R.id.choice2);
+        thirdCheck = findViewById(R.id.choice3);
+        checkbox_Results = new ArrayList<>();
 
         // Initialzie Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -58,10 +63,52 @@ public class SignUp extends AppCompatActivity {
         signUp.setOnClickListener(view -> {
             createNewUser();
         });
+
+        /*
+        // When the user clicks any of the checkbox
+        firstCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(firstCheck.isChecked()){
+                    checkbox_Results.add(50);
+                }
+                else{
+                    checkbox_Results.remove(50);
+                }
+
+            }
+        });
+
+
+        secondCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(secondCheck.isChecked()){
+                    checkbox_Results.add(100);
+                }
+                else{
+                    checkbox_Results.remove(100);
+                }
+
+            }
+        });
+
+
+        thirdCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(thirdCheck.isChecked()){
+                    checkbox_Results.add(200);
+                }
+                else{
+                    checkbox_Results.remove(200);
+                }
+
+            }
+        });
+
+         */
     }
-
-    //TODO Check the invesment part the a check list with 3 opitions
-
 
     // Create a new user within Firebase
     private void createNewUser(){
@@ -71,11 +118,11 @@ public class SignUp extends AppCompatActivity {
         String emails = email.getText().toString();
         String passwords = password.getText().toString();
         String university = universityName.getText().toString();
-        String money = investmentMoney.getText().toString();
+        int investMoney = checkbox_Results.get(0);
 
 
         if(TextUtils.isEmpty((name)) || TextUtils.isEmpty((emails)) || TextUtils.isEmpty((passwords)) ||
-                TextUtils.isEmpty((university)) || TextUtils.isEmpty((money))){
+                TextUtils.isEmpty((university))){
 
             fullName.setError("Fields can not be left empty");
             fullName.requestFocus();
