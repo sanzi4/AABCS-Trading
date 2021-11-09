@@ -3,6 +3,7 @@ package com.example.aabcs_trading;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,14 +18,20 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 
 public class SignUp extends AppCompatActivity {
 
     // Integrate Firebase to our Andorid App to use the email and password sign in feature
     private FirebaseAuth mAuth;
+    private DatabaseReference dbReference;
+    private FirebaseDatabase firebaseDatabase;
 
     // Variables to hold First Name, Last Name, University, Email and etc
     private EditText fullName;
@@ -54,6 +61,9 @@ public class SignUp extends AppCompatActivity {
 
         // Initialzie Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        dbReference = firebaseDatabase.getReference();
+
         /*
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -64,7 +74,6 @@ public class SignUp extends AppCompatActivity {
             createNewUser();
         });
 
-        /*
         // When the user clicks any of the checkbox
         firstCheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +116,6 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-         */
     }
 
     // Create a new user within Firebase
@@ -119,7 +127,6 @@ public class SignUp extends AppCompatActivity {
         String passwords = password.getText().toString();
         String university = universityName.getText().toString();
         int investMoney = checkbox_Results.get(0);
-
 
         if(TextUtils.isEmpty((name)) || TextUtils.isEmpty((emails)) || TextUtils.isEmpty((passwords)) ||
                 TextUtils.isEmpty((university))){
@@ -135,17 +142,14 @@ public class SignUp extends AppCompatActivity {
                     // If the user creation is succesfull
                     if(task.isSuccessful()){
 
-                        //TODO Add the User infomation: Full Name, Email Address, Univeristy, How much they would like to invest to the Realtime Databas
+                        addToDatabase();
                         /*
-                        // Add information in the RealTime DataBase
-                        DatabaseReference newUserRef = database.getReference("users");
-                        userDict.put("Full Name ", name);
-                        userDict.put("Email Address ", emails);
-                        userDict.put("University ", university);
-                        userDict.put("How much would they like to invest ", money);
+                        System.out.println("Database Information: " + "Full Name: " + name + "/n" +
+                                "Email Address: " + emails + "/n" +
+                                "University : " + university + "/n"
+                                + "Invesment Money: " + investMoney + "/n");
 
                          */
-
                         System.out.println("User succesfully created ");
 
                         // TODO Add the Home Screen to the following line of code so after the user registers it takes them to the home screen which is the investing page
@@ -161,6 +165,28 @@ public class SignUp extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    // Method to store the user's information to the databas after creating an account succesfully
+    public void addToDatabase(){
+
+        /*   Add information in the RealTime DataBase
+        Full Name, Email Address, Password, The Unviersity the user goes to, How much money they would like to invest
+        */
+
+        String name = fullName.getText().toString();
+        String emails = email.getText().toString();
+        String university = universityName.getText().toString();
+        int investMoney = checkbox_Results.get(0);
+
+        // Store user infomation into a dictionary
+        HashMap<String, Object> userDictionary = new HashMap<>();
+        userDictionary.put("Full Name" , name);
+        userDictionary.put("Email Address" , emails);
+        userDictionary.put("University" , university);
+        userDictionary.put("Money to Invest" , investMoney);
+
+        dbReference.child(name).setValue(userDictionary);
 
     }
 }
