@@ -68,11 +68,12 @@ public class Login extends AppCompatActivity {
                         // TODO Add the Home Screen to the following line of code so after the user registers it takes them to the home screen which is the investing page
 
                         // After loggin successfully take the user to the home screen
-                        startActivity(new Intent(Login.this, SignUp.class));
+                        startActivity(new Intent(Login.this, Navigations.class));
                     }
                     else{
                         System.out.println("Error with logging in users");
-                        Toast.makeText(Login.this,"Logging in user error occured: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this,"Logging in user error occured: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
                     }
                 }
             });

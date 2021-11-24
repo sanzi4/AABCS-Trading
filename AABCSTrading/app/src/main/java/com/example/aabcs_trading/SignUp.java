@@ -155,7 +155,7 @@ public class SignUp extends AppCompatActivity {
                         // TODO Add the Home Screen to the following line of code so after the user registers it takes them to the home screen which is the investing page
 
                         // Take the user to the home screen
-                        startActivity(new Intent(SignUp.this, Login.class));
+                        startActivity(new Intent(SignUp.this, Navigations.class));
                     }
 
                     // else if there is an error creating the user display an error
