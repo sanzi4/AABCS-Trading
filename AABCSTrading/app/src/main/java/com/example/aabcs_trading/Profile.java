@@ -3,6 +3,7 @@ package com.example.aabcs_trading;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +45,35 @@ public class Profile extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        // Initalize and Assign variables
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Set Home Selected
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+        // Perform Selection Item Listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    case R.id.dashboard:
+                        startActivity(new Intent(getApplicationContext(), Home_page.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.profile:
+                        return true;
+
+                    case R.id.blog:
+                        startActivity(new Intent(getApplicationContext(), Blog.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
         // Initalzie these variables to store the information the user inputs on the LogIn Screen based on the components on the UI screen
         logout = (Button) findViewById(R.id.sign_out);
@@ -109,45 +140,4 @@ public class Profile extends AppCompatActivity {
         });
 
     }
-/*
-
-
-
-        ref.child(userID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
-                    System.out.println("Success");
-
-                    // If the user exisits and we have infomation for that userID
-                    if(task.getResult().exists()){
-
-                        // Retrieve a snapshot fo the database
-                        DataSnapshot dataSnapshot = task.getResult();
-
-                        // Retrieve the info for that userID
-                        first_name =String.valueOf(dataSnapshot.child("Full Name").getValue());
-                        college_ =String.valueOf(dataSnapshot.child("University").getValue());
-                        email_Address =String.valueOf(dataSnapshot.child("Email Address").getValue());
-                        investment_money =String.valueOf(dataSnapshot.child("Money to Invest").getValue());
-
-                        System.out.println(first_name);
-                        System.out.println(college_);
-                        System.out.println(email_Address);
-                        System.out.println(investment_money);
-
-
-                        // Place these infomation into the appropriate text feild
-                        name.setText(first_name);
-                        uni.setText(college_);
-                        email.setText(email_Address);
-                        how_much_investing.setText(investment_money);
-                    }
-                    else{
-                        System.out.println("User does not exisit");
-                    }
-                }else{
-                }
-            }
- */
 }
