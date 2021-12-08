@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D2DBFA"
+    android:background="#F6F6DB"
     tools:context=".MainActivity">
 
     <Button
@@ -12,9 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
-        android:layout_marginEnd="158dp"
+        android:layout_marginEnd="164dp"
         android:layout_marginBottom="288dp"
+        android:backgroundTint="#C4DEA4"
         android:text="Sign Up"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -27,6 +29,8 @@
         android:layout_marginTop="288dp"
         android:layout_marginEnd="164dp"
         android:text="Log In"
+        android:backgroundTint="#C4DEA4"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/signUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
