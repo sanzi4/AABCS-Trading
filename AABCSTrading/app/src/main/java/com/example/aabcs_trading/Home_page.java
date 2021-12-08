@@ -16,6 +16,10 @@ public class Home_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+
+
+
+
         // Initalize and Assign variables
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
