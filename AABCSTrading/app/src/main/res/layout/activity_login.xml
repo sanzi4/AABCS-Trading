@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F6DB"
     tools:context=".Login">
 
     <EditText
         android:id="@+id/emailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="101dp"
         android:layout_marginTop="239dp"
         android:layout_marginEnd="101dp"
         android:layout_marginBottom="59dp"
@@ -45,6 +46,8 @@
         android:layout_marginTop="61dp"
         android:layout_marginEnd="172dp"
         android:layout_marginBottom="204dp"
+        android:backgroundTint="#C4DEA4"
+        android:textColor="@color/black"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

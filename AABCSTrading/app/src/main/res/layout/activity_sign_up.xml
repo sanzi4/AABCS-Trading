@@ -5,6 +5,7 @@
     android:id="@+id/name"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F6DB"
     tools:context=".SignUp">
 
     <TextView
@@ -15,9 +16,11 @@
         android:layout_marginTop="88dp"
         android:layout_marginEnd="21dp"
         android:fontFamily="@font/asset"
+        android:typeface="serif"
         android:paddingTop="30px"
         android:paddingBottom="30px"
         android:text="AABCS - Trading"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,8 +32,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
         android:layout_marginEnd="176dp"
-        android:background="#7CDFD3"
         android:text="Sign Up"
+        android:backgroundTint="#C4DEA4"
+        android:textColor="@color/black"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/college" />
 

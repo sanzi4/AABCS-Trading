@@ -13,9 +13,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_navigation">Navigation</string>
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_nav_bar">NavBar</string>
+    <string name="name_of_article" />
+    <string name="name_of_author" />
+    <string name="URL" />
 </resources>
