@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Main Menu");
 
         // initalize the sign up button using the button id, signup
         signUp = (Button)findViewById(R.id.signUp);
@@ -43,5 +44,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
+    }
+
+    public void launchScreenBuy(View v) {
+        //launch a new activity
+        Intent i = new Intent(this, Buyscreen.class);
+        startActivity(i);
+    }
+
+    public void launchScreenDeposit(View v) {
+        //launch a new activity
+        Intent i1 = new Intent(this, Depositscreen.class);
+        startActivity(i1);
     }
 }

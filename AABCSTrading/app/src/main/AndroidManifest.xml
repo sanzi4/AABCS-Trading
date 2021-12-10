@@ -25,6 +25,14 @@
             android:name=".Profile"
             android:exported="false" />
         <activity
+            android:name=".Depositscreen"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Buyscreen"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
