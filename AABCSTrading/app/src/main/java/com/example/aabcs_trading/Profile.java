@@ -134,7 +134,7 @@ public class Profile extends AppCompatActivity {
                     System.out.println("First Name is: " + first_name);
                 }
                 else{
-                    System.out.println("WTF is going on");
+                    System.out.println("What  is going on");
                 }
             }
         });

@@ -143,16 +143,8 @@ public class SignUp extends AppCompatActivity {
                     if(task.isSuccessful()){
 
                         addToDatabase();
-                        /*
-                        System.out.println("Database Information: " + "Full Name: " + name + "/n" +
-                                "Email Address: " + emails + "/n" +
-                                "University : " + university + "/n"
-                                + "Invesment Money: " + investMoney + "/n");
 
-                         */
                         System.out.println("User succesfully created ");
-
-                        // TODO Add the Home Screen to the following line of code so after the user registers it takes them to the home screen which is the investing page
 
                         // Take the user to the home screen
                         startActivity(new Intent(SignUp.this, Profile.class));
@@ -185,6 +177,7 @@ public class SignUp extends AppCompatActivity {
         userDictionary.put("Email Address" , emails);
         userDictionary.put("University" , university);
         userDictionary.put("Money to Invest" , investMoney);
+        userDictionary.put("Deposit" , 0);
 
         dbReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(userDictionary);
 
