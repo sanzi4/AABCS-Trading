@@ -13,6 +13,8 @@ public class Buyscreen extends AppCompatActivity implements View.OnClickListener
     private double Stockshares1;
     private double Stockshares2;
     private double Stockshares3;
+//private static Depositscreen = new Depositscreen();
+    double balance = Depositscreen.balance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,39 +30,38 @@ public class Buyscreen extends AppCompatActivity implements View.OnClickListener
         AppleBuy.setOnClickListener(this);
     }
 
-    public void buy(double balance) {
+    public void buy() {
+        //System.out.print(balance);
+
+       // Toast.makeText(this,"The balance is : " + balance, Toast.LENGTH_SHORT).show();
 
         if(balance <= 0 ) {
-            System.out.println("You can't buy anything!");
+            Toast.makeText(this,"You have no money. ", Toast.LENGTH_SHORT).show();
         }
-        else if(balance >= 1 && balance <= 1000 ) {
-            System.out.println("You bought this stock:");
+        else if(balance >= 1 ) {
+            Toast.makeText(this,"You bought a stock with this:  " + balance, Toast.LENGTH_SHORT).show();
         }
 
-        //create a hashmap
-        HashMap<String,Double> StockList = new HashMap<String, Double>();
+        Stockshares1 = balance / 19.87;
+        Stockshares2 = balance / 53.36;
+        Stockshares3 = balance / 150.04;
 
-        //add keys and values
-        StockList.put("Ford Price", 19.87);
-        StockList.put("Twitter Price", 53.36);
-        StockList.put("Apple Price", 150.04);
-
-        //Formula works
-        Stockshares1 = balance / StockList.get("Ford Price ");
-        Stockshares2 = balance / StockList.get("Twitter Price ");
-        Stockshares3 = balance / StockList.get("Apple Price ");
+        balance = 0;
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.Fordbuy:
+                buy();
                 Toast.makeText(this,"The amount of shares you have for this company is: " + Stockshares1, Toast.LENGTH_SHORT).show();
-            break;
+                  break;
             case R.id.Twitterbuy:
+                buy();
                 Toast.makeText(this,"The amount of shares you have for this company is: " + Stockshares2, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.Applebuy:
+                buy();
                 Toast.makeText(this,"The amount of shares you have for this company is: " + Stockshares3, Toast.LENGTH_SHORT).show();
                 break;
         }

@@ -45,16 +45,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
-    public void launchScreenBuy(View v) {
-        //launch a new activity
-        Intent i = new Intent(this, Buyscreen.class);
-        startActivity(i);
-    }
-
-    public void launchScreenDeposit(View v) {
-        //launch a new activity
-        Intent i1 = new Intent(this, Depositscreen.class);
-        startActivity(i1);
-    }
 }

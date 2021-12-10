@@ -20,4 +20,17 @@
     <string name="name_of_article" />
     <string name="name_of_author" />
     <string name="URL" />
+
+    <string name="BuyButton">Buy</string>
+    <string name="SellButton">Sell</string>
+    <string name="DepositButton">Deposit</string>
+    <string name="TextView1">AABCS Trading</string>
+    <string name="Screen1BuyButton1">Buy?</string>
+    <string name="Screen1BuyButton2">Buy?</string>
+    <string name="Screen1BuyButton3">Buy?</string>
+    <string name="MultiLine1">Select a company that you would like to buy:</string>
+    <string name="Company1">Ford</string>
+    <string name="Company2">Twitter</string>
+    <string name="Company3">Apple</string>
+    <string name="DepositText">How much would you like to deposit?</string>
 </resources>
